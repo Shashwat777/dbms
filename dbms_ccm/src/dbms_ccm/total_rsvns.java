@@ -22,7 +22,7 @@ public class total_rsvns implements Runnable {
 		 int q=-1;
 		 while(flights.get(0).lock ||flights.get(1).lock ||flights.get(2).lock ||flights.get(3).lock ||flights.get(4).lock ) {
 			try {
-				Thread.sleep(10);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

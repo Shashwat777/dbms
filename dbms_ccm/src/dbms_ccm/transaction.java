@@ -5,18 +5,25 @@ import java.util.Random;
 
 public class transaction implements Runnable {
 	database mydb;
-	transaction(database db){
+	int tno;
+	static int k=0;
+	transaction(database db,int no){
 		mydb=db;
+		tno=no;
 	}
+	
 	public void run() {
 		int flsz=mydb.flights.size()-1;
 		int psize=mydb.psngrs.size()-1;
 		
+		for(int t=0;t<this.tno;t++) {
+			try {
+			k++;
+			//System.out.println(k+"k");
 		
 
 
 			
-				Thread t=new Thread();
 				Random rand = new Random(); 
 
 				ArrayList<Integer> transaction =new  ArrayList<Integer>() ;
@@ -119,10 +126,18 @@ public class transaction implements Runnable {
 		rsv.run();
 	
 		
-	}
+	}}catch (IndexOutOfBoundsException exception) {}
+		 
 		
 
-}
+
+		catch (IllegalArgumentException exception) {}
+		 
+		
+
+	}
+		//System.out.print("shash"+k+"myk");}
 	
+	}}
 	
-}
+

@@ -3,6 +3,7 @@ package dbms_ccm;
 import java.util.*;
 
 public class database {
+	ArrayList<Thread> thrds=new  ArrayList<Thread>() ;
      ArrayList<flight> flights=new  ArrayList<flight>() ; // list of all flights 
     ArrayList<passenger> psngrs =new  ArrayList<passenger>() ; ;
     ArrayList<Integer> ttype =new  ArrayList<Integer>() ;
@@ -65,13 +66,17 @@ public class database {
 		
 		
 				}
-	void concurrency(int tno) {
-		for(int t=0;t<tno;t++) {
+	void concurrency(int tno , int threads) throws InterruptedException {
+		//System.out.println(tno/threads+"s");
+		thrds=new  ArrayList<Thread>() ;
+		for(int t=0;t<threads;t++) {
 		
-		transaction tran=new transaction(this);
+		transaction tran=new transaction(this,tno/threads);
 		Thread Thread1= new Thread(tran);
+		thrds.add(Thread1);
 		Thread1.start();
 		}
+		
 		
 	
 		
@@ -169,7 +174,7 @@ public class database {
 				ps=psngrs.get(pid);
 				 
 				
-			transaction.add(fl1);
+			transaction.add(fl1); /* 100 t = 45,6 */
 			transaction.add(fl2);
 			transaction.add(pid);
 			
