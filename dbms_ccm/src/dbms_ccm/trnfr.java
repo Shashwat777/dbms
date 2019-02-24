@@ -17,6 +17,34 @@ public class trnfr implements Runnable {
 		
 	}
 	 public void run() {
+		 while(flight1.lock || flight2.lock ||p.lock) {
+			 
+			 try {
+				Thread.sleep(10);
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 }
+		 flight1.lock=true;
+		 flight2.lock=true;
+		 p.lock=true;
+		 
+		 if(flight1.bookings.contains(p)==false || flight2.bookings.size()==flight2.seats) {}
+		 else {
+			 flight1.bookings.remove(p);
+			 flight2.bookings.add(p);
+			 
+		 }
+		 
+		 flight1.lock=false;
+		 flight2.lock=false;
+		 p.lock=false;
+		 
+		 
+	 }
+	 public void compute() {
 		 if(flight1.bookings.contains(p)==false || flight2.bookings.size()==flight2.seats) {}
 		 else {
 			 flight1.bookings.remove(p);
@@ -27,5 +55,6 @@ public class trnfr implements Runnable {
 		 
 		 
 	 }
+
 
 }

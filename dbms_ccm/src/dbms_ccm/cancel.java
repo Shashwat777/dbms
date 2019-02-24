@@ -9,10 +9,35 @@ public class cancel implements Runnable{
 		  fl=mydb.flights.get(f);
 		    psng=mydb.psngrs.get(p);
 	}
-	public void run() {
+	public void  comp() {
+		
 		fl.bookings.remove(psng);
 		
 		   
+		
 	   }
+public void run() {
+		
+		
+		while(fl.lock || psng.lock) {try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
+		   fl.lock=true;
+		   psng.lock=true;
+		   fl.bookings.remove(psng);
+		   fl.lock=false;
+		   psng.lock=false;
+		   
+	   }
+	   
+		
+		   
+		
+	   
+	
+	
 
 }

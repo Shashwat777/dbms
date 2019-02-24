@@ -65,6 +65,17 @@ public class database {
 		
 		
 				}
+	void concurrency(int tno) {
+		for(int t=0;t<tno;t++) {
+		
+		transaction tran=new transaction(this);
+		Thread Thread1= new Thread(tran);
+		Thread1.start();
+		}
+		
+	
+		
+	}
 	void transaction_gen(int tno){
 	int flsz=flights.size()-1;
 	int psize=psngrs.size()-1;
