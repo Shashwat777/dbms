@@ -28,23 +28,20 @@ public class total_rsvns implements Runnable {
 				e.printStackTrace();
 			}
 		 }
-		 flights.get(0).lock=true;
-		 flights.get(1).lock=true;
-		 flights.get(2).lock=true;
-		 flights.get(3).lock=true;
-		 flights.get(4).lock=true;
+		 flights.get(0).slock=true;
+		 flights.get(1).slock=true;
+		 flights.get(2).slock=true;
+		 flights.get(3).slock=true;
+		 flights.get(4).slock=true;
 		 
 		 
 		 for(int it=0;it<flights.size();it++) 
 		 {
 			 bookings=bookings+flights.get(it).bookings.size();
+			 flights.get(it).slock=false;
 			
 		 }
-		 flights.get(0).lock=false;
-		 flights.get(1).lock=false;
-		 flights.get(2).lock=false;
-		 flights.get(3).lock=false;
-		 flights.get(4).lock=false;
+		 
 
 		 
 		 

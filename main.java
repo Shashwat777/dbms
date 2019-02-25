@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 public class main {
-	static void simulate(int tno , database mydb ) throws InterruptedException {
+	/*static void simulate(int tno , database mydb ) throws InterruptedException {
 		System.out.println("TRANSACTION:"+tno);
 		
 		 long  startTime = System.currentTimeMillis();
@@ -183,7 +183,7 @@ mydb.concurrency(tno,7);
 			t.join();// sequential
 		}
 	}}
-
+*/
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		database mydb=new database();
@@ -197,7 +197,7 @@ mydb.concurrency(tno,7);
 		*/
 		System.out.println("TRANSASCTIONS:30000");
 		long startTime = System.currentTimeMillis();
-		int tno=30000;
+		int tno=30000; // we can change here number of transactions
 		mydb.concurrency(tno,1);
 		
 		

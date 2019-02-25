@@ -19,7 +19,7 @@ public class cancel implements Runnable{
 public void run() {
 		
 		
-		while(fl.lock || psng.lock) {try {
+		while(fl.lock || psng.lock || fl.slock || psng.slock) {try {
 			Thread.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -29,7 +29,7 @@ public void run() {
 		   psng.lock=true;
 		   fl.bookings.remove(psng);
 		   fl.lock=false;
-		   psng.lock=false;
+		   psng.lock=false; 
 		   
 	   }
 	   

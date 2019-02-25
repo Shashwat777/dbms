@@ -30,7 +30,7 @@ public class my_flights implements Runnable {
 				e.printStackTrace();
 			}
 		 }
-		 psng.lock=true;
+		 psng.slock=true;
 		 ArrayList<flight> flights=mydb.flights;
 		 for(int it=0;it<flights.size();it++) {
 			 if(flights.get(it).bookings.contains(psng)) {
@@ -39,7 +39,7 @@ public class my_flights implements Runnable {
 			 }
 		 }
 		 returner();
-		 psng.lock=false;
+		 psng.slock=false;
 	 }
 	 
 	 ArrayList<flight>  returner(){

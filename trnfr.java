@@ -17,7 +17,7 @@ public class trnfr implements Runnable {
 		
 	}
 	 public void run() {
-		 while(flight1.lock || flight2.lock ||p.lock) {
+		 while(flight1.lock || flight2.lock ||p.lock ||flight1.slock || flight2.slock ||p.slock) {
 			 
 			 try {
 				Thread.sleep(1);
