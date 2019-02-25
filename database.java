@@ -66,12 +66,13 @@ public class database {
 		
 		
 				}
-	void concurrency(int tno , int threads) throws InterruptedException {
+	void concurrency( int threads) throws InterruptedException {
 		//System.out.println(tno/threads+"s");
+		transaction.k=0;
 		thrds=new  ArrayList<Thread>() ;
 		for(int t=0;t<threads;t++) {
 		
-		transaction tran=new transaction(this,tno/threads);
+		transaction tran=new transaction(this);
 		Thread Thread1= new Thread(tran);
 		thrds.add(Thread1);
 		Thread1.start();
