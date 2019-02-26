@@ -17,6 +17,10 @@ public class trnfr implements Runnable {
 		
 	}
 	 public void run() {
+		   p.Locktable.add(Thread.currentThread());
+			flight1.Locktable.add(Thread.currentThread());
+	
+				flight2.Locktable.add(Thread.currentThread());
 		 while(flight1.lock || flight2.lock ||p.lock ||flight1.slock || flight2.slock ||p.slock) {
 			 
 			 try {
@@ -30,6 +34,10 @@ public class trnfr implements Runnable {
 		 flight1.lock=true;
 		 flight2.lock=true;
 		 p.lock=true;
+		 p.Locktable.remove(Thread.currentThread());
+			flight1.Locktable.remove(Thread.currentThread());
+	
+				flight2.Locktable.remove(Thread.currentThread());
 		 
 		 if(flight1.bookings.contains(p)==false || flight2.bookings.size()==flight2.seats) {}
 		 else {

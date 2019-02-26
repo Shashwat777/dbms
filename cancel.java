@@ -18,8 +18,10 @@ public class cancel implements Runnable{
 	   }
 public void run() {
 		
-		
-		while(fl.lock || psng.lock || fl.slock || psng.slock) {try {
+		psng.Locktable.add(Thread.currentThread());
+		fl.Locktable.add(Thread.currentThread());
+
+		while(fl.lock || psng.lock || fl.slock || psng.slock || psng.Locktable.contains(Thread.currentThread())==false ||fl.Locktable.contains(Thread.currentThread())==false) {try {
 			Thread.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -27,6 +29,8 @@ public void run() {
 		}}
 		   fl.lock=true;
 		   psng.lock=true;
+		   psng.Locktable.remove(Thread.currentThread());
+			fl.Locktable.remove(Thread.currentThread());
 		   fl.bookings.remove(psng);
 		   fl.lock=false;
 		   psng.lock=false; 
