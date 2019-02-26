@@ -28,8 +28,8 @@ public class reserve implements Runnable {
 		}}
 		   fl.lock=true;
 		   psng.lock=true;
-		   psng.Locktable.add(Thread.currentThread());
-			fl.Locktable.add(Thread.currentThread());
+		   psng.Locktable.remove(Thread.currentThread());
+			fl.Locktable.remove(Thread.currentThread());
 		   if(this.fl.bookings.size()<this.fl.seats) {
 			   fl.bookings.add(psng);
 		   }
