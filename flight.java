@@ -9,7 +9,6 @@ public class flight {
     int seats;
     boolean lock=false; // xlock
     boolean slock=false; // shared lock
-    ArrayList<Thread> LockTable=new ArrayList<Thread>();
     
     
 
