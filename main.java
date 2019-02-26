@@ -268,7 +268,7 @@ mydb.concurrency(tno,7);
 		join(mydb);
 		mydb.concurrency(80);
 		Thread.sleep(500);
-		System.out.println("number of threads 100:"+transaction.k);
+		System.out.println("number of threads 80:"+transaction.k);
 		System.exit(0);
 
 
