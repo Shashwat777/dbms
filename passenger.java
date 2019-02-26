@@ -7,6 +7,7 @@ public class passenger {
     boolean slock;// shared lock
 
     ArrayList<flight> flights=new ArrayList<flight>() ;
+    ArrayList<Thread> LockTable=new ArrayList<Thread>();
     int id;
     passenger(){
    slock=false ;
